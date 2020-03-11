@@ -1,7 +1,10 @@
 <template>
   <div class="cards__list">
     <MovieCard 
-    v-for="movie in movies" :movie=movie @card-clicked="cardClickedHandler" />
+      v-for="movie in movies" 
+      :key="movie.id"
+      :movie=movie 
+      @card-clicked="cardClickedHandler" />
   </div>
 </template>
 
