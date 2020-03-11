@@ -69,12 +69,12 @@
       },
       radioClicked: function(type){
         this.selected = type;
-        this.movies = [];
         this.fetchData();
       },
       fetchData: async function(){
         try {
           this.loading = true;
+          this.movies = [];
           const response = this.selected == 'movies' 
             ? await MovieService.getAllMovies(this.page) 
             : await MovieService.getAllSeries(this.page);
