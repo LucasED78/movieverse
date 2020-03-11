@@ -1,5 +1,6 @@
 import api from './api';
 
 export default {
-  getAll: page => api().get(`/discover/movie?page=${page}`)
+  getAllMovies: page => api().get(`/discover/movie?page=${page}`),
+  getAllSeries: page => api().get(`/discover/tv?page=${page}`)
 }
