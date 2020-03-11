@@ -9,6 +9,7 @@
     height: 50px;
     border: .4rem solid rgba(109, 109, 249, 0.795);
     border-radius: 100%;
+    margin: auto;
   }
 
   .loader::before {
