@@ -1,33 +1,40 @@
 <template>
-  <ContentWrapper>
-    <InputRow>
-      <MverseRadio 
-        content="movies" 
-        name="mvradio" 
-        identifier="movies" 
-        :radioClickedHandler="() => radioClicked('movies')" />
-      <MverseRadio 
-        content="series" 
-        name="mvradio" 
-        identifier="series" 
-        :radioClickedHandler="() => radioClicked('series')" />
-    </InputRow>
+  <div>
+    <ModalWrapper v-if="showModal" :backdropClickedHandler="() => this.showModal = false">
+      <Modal>
+        teste
+      </Modal>
+    </ModalWrapper>
+    <ContentWrapper>  
+      <InputRow>
+        <MverseRadio 
+          content="movies" 
+          name="mvradio" 
+          identifier="movies" 
+          :radioClickedHandler="() => radioClicked('movies')" />
+        <MverseRadio 
+          content="series" 
+          name="mvradio" 
+          identifier="series" 
+          :radioClickedHandler="() => radioClicked('series')" />
+      </InputRow>
 
-    <CardsList :movies="movies" :cardClickedHandler="cardClicked"/>
+      <CardsList :movies="movies" :cardClickedHandler="cardClicked"/>
 
-    <PagerRow v-if="movies.length">
-      <Pager 
-        :pageClickedHandler="() => pageClicked('prev')" 
-        v-if="page > 1" 
-        content="Prev" />
+      <PagerRow v-if="movies.length">
+        <Pager 
+          :pageClickedHandler="() => pageClicked('prev')" 
+          v-if="page > 1" 
+          content="Prev" />
 
-      <Pager 
-        :pageClickedHandler="() => pageClicked('next')" 
-        content="Next" />
-    </PagerRow>
+        <Pager 
+          :pageClickedHandler="() => pageClicked('next')" 
+          content="Next" />
+      </PagerRow>
 
-    <Loading v-if="loading" />
-  </ContentWrapper>
+      <Loading v-if="loading" />
+    </ContentWrapper>
+  </div>
 </template>
 
 <script>
@@ -39,6 +46,8 @@
   import InputRow from './Radio/InputRow.vue';
   import MverseRadio from './Radio/MverseRadio.vue';
   import MovieService from '../services/MovieService';
+  import ModalWrapper from '../components/Modal/ModalWrapper.vue';
+  import Modal from '../components/Modal/Modal.vue';
 
   export default {
     data(){
@@ -46,7 +55,8 @@
         selected: 'movies',
         movies: [],
         page: 1,
-        loading: false
+        loading: false,
+        showModal: false
       }
     },
     components: {
@@ -57,9 +67,12 @@
       Loading,
       InputRow,
       MverseRadio,
+      ModalWrapper,
+      Modal
     },
     methods: {
       cardClicked: function(id){
+        this.showModal = true;
         console.log(id);
       },
       pageClicked: async function(action){

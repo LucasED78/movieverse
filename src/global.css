@@ -22,3 +22,5 @@ body {
   font-size: 14px;
   font-family: OpenSans;
 }
+
+.noscroll { overflow: hidden; }
