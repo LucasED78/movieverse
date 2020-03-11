@@ -1,11 +1,12 @@
 import Vue from 'vue/dist/vue.esm';
-import Test from './components/Test.vue';
+import App from './components/App.vue';
+import './global.css';
 
 const app = new Vue({
   el: '#root',
-  template: '<Test/>',
+  template: '<App />',
   components: {
-    Test: Test
+    App
   }
 })
 

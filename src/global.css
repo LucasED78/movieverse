@@ -1,0 +1,24 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(./assets/OpenSans-Regular.ttf) format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(./assets//OpenSans-Light.ttf) format('truetype');
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(./assets//OpenSans-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: OpenSans;
+}
